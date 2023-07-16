@@ -52,7 +52,12 @@ function App() {
         </button>
       </form>
       <div className="w-full rounded-lg p-10 border-solid border-gray-500 border-2">
-        <Result loading={isloading} loadingfunct={setloading} />
+        <Result
+          loading={isloading}
+          loadingfunct={setloading}
+          measurement={parseFloat(value)}
+          unit={selectedUnit}
+        />
       </div>
     </div>
   );
