@@ -75,6 +75,64 @@ const Result = (props: Prop) => {
     },
   ];
 
+  // p: object measurement
+
+  const measure = (p: number) => {
+    let result = 0;
+
+    const rounding = (p1: number) => {
+      return Math.round((p1 + Number.EPSILON) * 10) / 10;
+    };
+
+    if (Number.isNaN(props.measurement / p)) {
+      return "-";
+    }
+
+    switch (props.unit) {
+      case "Meter":
+        result = rounding(props.measurement / p);
+        break;
+
+      case "Millimetre":
+        result = rounding(props.measurement / p / 1000);
+        break;
+
+      case "Centimeter":
+        result = rounding(props.measurement / p / 100);
+        break;
+
+      case "Kilometre":
+        result = rounding((props.measurement / p) * 1000);
+        break;
+
+      case "Yard":
+        result = rounding(props.measurement / p / 1.094);
+        break;
+
+      case "Inch":
+        result = rounding(props.measurement / p / 39.37);
+        break;
+
+      case "Foot":
+        result = rounding(props.measurement / p / 3.281);
+        break;
+
+      case "Mile":
+        result = rounding((props.measurement / p) * 1609);
+        break;
+
+      case "Nautical mile":
+        result = rounding((props.measurement / p) * 1852);
+        break;
+
+      default:
+        return "-";
+        break;
+    }
+
+    return result;
+  };
+
   if (props.loading) {
     return (
       <div className="flex items-center justify-center">
@@ -85,14 +143,16 @@ const Result = (props: Prop) => {
     return (
       <div className="flex items-center justify-center flex-col">
         <h2 className="text-2xl">
-          {`${props.measurement || 0} ${props.unit} is equal to`}
+          {`${props.measurement || 0} ${
+            props.unit
+          } is approximately (or equal to)`}
         </h2>
 
         <div className="mt-2">
           {objs.map((p) => {
             return (
               <div className="flex flex-row justify-between gap-10">
-                <h2 className="text-2xl">{p.length}</h2>
+                <h2 className="text-2xl">{measure(p.length)}</h2>
                 <h2 className="text-2xl">{p.name}</h2>
               </div>
             );

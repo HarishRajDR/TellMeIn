@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="flex justify-center p-20 flex-col items-center gap-20 w-full">
-      <h1 className="text-7xl font-bold">Tell Me in</h1>
+      <h1 className="text-7xl font-bold">Tell Me in...</h1>
       <form className="flex gap-2" onSubmit={(event) => event.preventDefault()}>
         <input
           type="number"
@@ -37,7 +37,7 @@ function App() {
 
         <DropDown list={units} unit={selectedUnit} funct={setSelectedUnit} />
       </form>
-      <div className="w-full rounded-lg p-10 border-solid border-gray-500 border-2">
+      <div className="w-full rounded-lg p-10">
         <Result
           loading={isloading}
           loadingfunct={setloading}
