@@ -21,3 +21,13 @@ we still enforce color-scheme: dark, despite the user preference */
     font-family: "Plus Jakarta Sans";
   }
 }
+
+/* For removing arrows in the input number */
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
