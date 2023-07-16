@@ -148,13 +148,12 @@ const Result = (props: Prop) => {
           } is approximately (or equal to)`}
         </h2>
 
-        <div className="mt-2">
+        <div className="mt-2 flex flex-row flex-wrap justify-between gap-5 ">
           {objs.map((p) => {
             return (
-              <div className="flex flex-row justify-between gap-10">
-                <h2 className="text-2xl">{measure(p.length)}</h2>
-                <h2 className="text-2xl">{p.name}</h2>
-              </div>
+              <h2 className="text-black font-bold text-2xl bg-yellow-400 px-5 py-3 rounded-md w-96">
+                {`${measure(p.length)} ${p.name}`}
+              </h2>
             );
           })}
         </div>
