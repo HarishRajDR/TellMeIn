@@ -3,31 +3,25 @@ import DropDown from "./components/DropDown";
 import Result from "./components/Result";
 
 const units = [
-  "Kilometre",
-  "Meter",
-  "Centimeter",
   "Millimetre",
-  "Micrometres",
-  "Nanometre",
-  "Mile",
+  "Centimeter",
+  "Meter",
+  "Kilometre",
   "Yard",
-  "Foot",
   "Inch",
+  "Foot",
+  "Mile",
   "Nautical mile",
 ];
 
 function App() {
-  const [selectedUnit, setSelectedUnit] = useState(units[0]);
+  const [selectedUnit, setSelectedUnit] = useState(units[4]);
   const [value, setValue] = useState("");
   const [isloading, setloading] = useState(true);
 
-  const handleSubmit = () => {
-    console.log(value);
-  };
-
   return (
     <div className="flex justify-center p-20 flex-col items-center gap-20 w-full">
-      <h1 className="text-7xl font-bold">How Much in</h1>
+      <h1 className="text-7xl font-bold">Tell Me in</h1>
       <form className="flex gap-2" onSubmit={(event) => event.preventDefault()}>
         <input
           type="number"
@@ -42,14 +36,6 @@ function App() {
         />
 
         <DropDown list={units} unit={selectedUnit} funct={setSelectedUnit} />
-
-        <button
-          type="submit"
-          className="rounded-md bg-indigo-600 text-2xl font-semibold text-white text-center py-4 px-10 mt-1"
-          onClick={handleSubmit}
-        >
-          Go!
-        </button>
       </form>
       <div className="w-full rounded-lg p-10 border-solid border-gray-500 border-2">
         <Result
