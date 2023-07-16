@@ -1,16 +1,38 @@
-import { useState } from "react";
+type Prop = {
+  loading: boolean;
+  loadingfunct: any;
+};
 
-const Result = () => {
-  const [isloading, setloading] = useState(true);
+// London Bus Height
+// Football Pitch
+// Basketball Court
+// Olympic Swimming Pool
+// Tennis Court
+// Eiffel Tower Height
+// Empire State Building
+// Burj Khalifa
+// Seatle Space Needle
+// CN tower
+// Mount Everest
+// Mount Fuji
 
+const Result = (props: Prop) => {
   setTimeout(() => {
-    setloading(false);
+    props.loadingfunct(false);
   }, 2000);
 
-  if (isloading) {
-    return <h2>Loading...</h2>;
+  if (props.loading) {
+    return (
+      <div className="flex items-center justify-center">
+        <h2>Loading...</h2>
+      </div>
+    );
   } else {
-    return <h2>Done Loading</h2>;
+    return (
+      <div className="flex items-center justify-center">
+        <h2>Done Loading</h2>
+      </div>
+    );
   }
 };
 
