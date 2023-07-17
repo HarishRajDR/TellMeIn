@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DropDown from "./components/DropDown";
 import Result from "./components/Result";
+import Footer from "./components/Footer";
 
 const units = [
   "Millimetre",
@@ -20,7 +21,7 @@ function App() {
   const [isloading, setloading] = useState(true);
 
   return (
-    <div className="flex justify-center p-20 flex-col items-center gap-20 w-full">
+    <div className="flex justify-center p-20 flex-col items-center gap-10 w-full">
       <h1 className="text-7xl font-bold">Tell Me in...</h1>
       <form className="flex gap-2" onSubmit={(event) => event.preventDefault()}>
         <input
@@ -44,6 +45,9 @@ function App() {
           measurement={parseFloat(value)}
           unit={selectedUnit}
         />
+      </div>
+      <div className="absolute bottom-10">
+        <Footer />
       </div>
     </div>
   );

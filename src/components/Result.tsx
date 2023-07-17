@@ -68,7 +68,7 @@ const Result = (props: Prop) => {
     {
       name: "Eiffel Tower Height",
       length: 330,
-      colorClass: "bg-[#003069] text-white",
+      colorClass: "bg-[#555555] text-white",
     },
     {
       name: "Empire State Building",
@@ -78,7 +78,7 @@ const Result = (props: Prop) => {
     {
       name: "Burj Khalifa",
       length: 830,
-      colorClass: "bg-[#003069] text-white",
+      colorClass: "bg-green-900 text-white",
     },
     {
       name: "Mount Everest",
