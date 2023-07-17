@@ -1,8 +1,7 @@
 type Prop = {
-  loading: boolean;
-  loadingfunct: any;
   measurement: number;
   unit: string;
+  objects: Array<{ name: string; length: number; colorClass: string }>;
 };
 
 // London Bus Height - 4.4m
@@ -25,73 +24,6 @@ type Prop = {
 // Mount Fuji - 3776m
 
 const Result = (props: Prop) => {
-  setTimeout(() => {
-    props.loadingfunct(false);
-  }, 2000);
-
-  const objs = [
-    {
-      name: "London Bus Height",
-      length: 4.38,
-      colorClass: "bg-[#B92928] text-white",
-    },
-    {
-      name: "London Bus Length",
-      length: 12,
-      colorClass: "bg-[#B92928] text-white",
-    },
-    {
-      name: "Football Pitch",
-      length: 90,
-      colorClass: "bg-green-700 text-white",
-    },
-    {
-      name: "American Football Field",
-      length: 109.73,
-      colorClass: "bg-[#003069] text-white",
-    },
-    {
-      name: "Basketball Court",
-      length: 28,
-      colorClass: "bg-[#ee6730] text-white",
-    },
-    {
-      name: "Olympic Swimming Pool",
-      length: 50,
-      colorClass: "bg-[#0e87cc] text-white",
-    },
-    {
-      name: "Tennis Court",
-      length: 23.77,
-      colorClass: "bg-[#dfff4f] text-black",
-    },
-    {
-      name: "Eiffel Tower Height",
-      length: 330,
-      colorClass: "bg-[#555555] text-white",
-    },
-    {
-      name: "Empire State Building",
-      length: 443,
-      colorClass: "bg-[#BF0A30] text-white",
-    },
-    {
-      name: "Burj Khalifa",
-      length: 830,
-      colorClass: "bg-green-900 text-white",
-    },
-    {
-      name: "Mount Everest",
-      length: 8848,
-      colorClass: "bg-white text-black",
-    },
-    {
-      name: "Mount Fuji",
-      length: 3776,
-      colorClass: "bg-[#f25477] text-white",
-    },
-  ];
-
   // p: object measurement
 
   const measure = (p: number) => {
@@ -150,39 +82,30 @@ const Result = (props: Prop) => {
     return result;
   };
 
-  if (props.loading) {
-    return (
-      <div className="flex items-center justify-center">
-        <h2>Loading...</h2>
-      </div>
-    );
-  } else {
-    return (
-      <div className="flex items-center justify-center flex-col">
-        <h2 className="text-2xl mb-10">
-          {`${props.measurement || 0} ${
-            props.unit
-          } is approximately (or equal to)`}
-        </h2>
+  return (
+    <div className="flex items-center justify-center flex-col">
+      <h2 className="text-2xl mb-10">
+        {`${props.measurement || 0} ${
+          props.unit
+        } is approximately (or equal to)`}
+      </h2>
 
-        <div className="mt-2 flex flex-row flex-wrap justify-between gap-5">
-          {objs.map((p) => {
-            return (
-              <h2
-                className={`text-black font-bold text-2xl ${
-                  p.colorClass || "bg-yellow-400"
-                } px-5 py-3 rounded-md w-[25rem]`}
-              >
-                {`${measure(p.length)} `}
-                <br />
-                {`${p.name}`}
-              </h2>
-            );
-          })}
-        </div>
+      <div className="mt-2 flex flex-row flex-wrap justify-between gap-5">
+        {props.objects.map((p) => {
+          return (
+            <h2
+              className={`text-black font-bold text-2xl ${
+                p.colorClass || "bg-yellow-400"
+              } px-5 py-3 rounded-md w-[25rem]`}
+            >
+              {`${measure(p.length)} `}
+              <br />
+              {`${p.name}`}
+            </h2>
+          );
+        })}
       </div>
-    );
-  }
+    </div>
+  );
 };
-
 export default Result;
