@@ -1,9 +1,3 @@
-type Prop = {
-  measurement: number;
-  unit: string;
-  objects: Array<{ name: string; length: number; colorClass: string }>;
-};
-
 // London Bus Height - 4.4m
 // London Bus Length - 12m
 // Football Pitch - 90m
@@ -22,6 +16,12 @@ type Prop = {
 // CN tower - 553.3m
 // Mount Everest - 8848m
 // Mount Fuji - 3776m
+
+type Prop = {
+  measurement: number;
+  unit: string;
+  objects: Array<{ name: string; length: number; colorClass: string }>;
+};
 
 const Result = (props: Prop) => {
   // p: object measurement

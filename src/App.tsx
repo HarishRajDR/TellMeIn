@@ -2,6 +2,7 @@ import { useState } from "react";
 import DropDown from "./components/DropDown";
 import Result from "./components/Result";
 import Footer from "./components/Footer";
+import MyPopover from "./components/InfoIcon";
 
 const units = [
   "Millimetre",
@@ -79,7 +80,7 @@ const objs = [
 ];
 
 function App() {
-  const [selectedUnit, setSelectedUnit] = useState(units[4]);
+  const [selectedUnit, setSelectedUnit] = useState(units[2]);
   const [value, setValue] = useState("");
 
   return (
@@ -106,6 +107,9 @@ function App() {
           unit={selectedUnit}
           objects={objs}
         />
+      </div>
+      <div className="absolute bottom-10 right-10">
+        <MyPopover objects={objs} unit={selectedUnit} />
       </div>
       <div className="absolute bottom-10">
         <Footer />
