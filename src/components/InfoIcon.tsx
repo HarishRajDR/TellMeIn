@@ -29,7 +29,7 @@ export default function MyPopover(props: Prop) {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute -right-1 z-10 mt-3 w-screen max-w-sm -translate-y-[38rem] transform px-4 sm:px-0 lg:max-w-3xl">
+              <Popover.Panel className="absolute -right-1 bottom-16 z-10 mt-3 w-screen max-w-sm -translate-y-[38rem] transform px-4 sm:px-0 lg:max-w-3xl">
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="relative grid gap-8 bg-cyan-600 p-7 lg:grid-cols-2">
                     {props.objects.map((p) => {
