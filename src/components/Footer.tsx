@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className="flex justify-between font-bricolageGrotesque items-center gap-3">
-      <h3 className="flex gap-1 text-xs sm:text-lg w-full">
+      <h3 className="flex items-center gap-1 text-xs sm:text-lg w-full">
         {"Build by "}
         <span className="flex items-center gap-1 hover:underline">
           <a href="https://github.com/HarishRajDR/" target="_blank">
