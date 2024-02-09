@@ -1,22 +1,3 @@
-// London Bus Height - 4.4m
-// London Bus Length - 12m
-// Football Pitch - 90m
-// American Football Field - 109.73m
-// Basketball Court - 28m
-// Olympic Swimming Pool - 50m
-// Tennis Court - 23.77m
-// Eiffel Tower Height - 300
-// Eiffel Tower Height to tip - 330m
-// Empire State Building - 381m
-// Empire State Building to tip - 443m
-// Burj Khalifa - 828m
-// Burj Khalifa to tip - 830m
-// Seatle Space Needle - 158m
-// Seatle Space Needle to tip - 184.4m
-// CN tower - 553.3m
-// Mount Everest - 8848m
-// Mount Fuji - 3776m
-
 type Prop = {
   measurement: number;
   unit: string;
@@ -76,7 +57,6 @@ const Result = (props: Prop) => {
 
       default:
         return "-";
-        break;
     }
 
     return result;
@@ -84,19 +64,19 @@ const Result = (props: Prop) => {
 
   return (
     <div className="flex items-center justify-center flex-col">
-      <h2 className="text-2xl mb-10">
+      <h2 className="sm:text-2xl text-base mb-10">
         {`${props.measurement || 0} ${
           props.unit
         } is approximately (or equal to)`}
       </h2>
 
-      <div className="mt-2 flex flex-row flex-wrap justify-between gap-5">
+      <div className="mt-2 flex flex-row flex-wrap justify-between items-center gap-5">
         {props.objects.map((p) => {
           return (
             <h2
               className={`text-black font-bold text-2xl ${
                 p.colorClass || "bg-yellow-400"
-              } px-5 py-3 rounded-md w-[25rem]`}
+              } px-5 py-3 rounded-md w-[calc(100vw/1.2)] lg:w-[25rem]`}
             >
               {`${measure(p.length)} `}
               <br />

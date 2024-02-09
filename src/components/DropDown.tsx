@@ -11,7 +11,7 @@ type Props = {
 
 function DropDown(props: Props) {
   return (
-    <div className="w-[30rem]">
+    <div className="w-[calc(100vw/1.2)] max-w-lg">
       <Listbox value={props.unit} onChange={props.funct}>
         <div className="relative mt-1">
           <Listbox.Button className="relative w-full cursor-default rounded-lg bg-[#3b3b3b] py-4 pl-5 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-2xl">

@@ -2,7 +2,6 @@ import { useState } from "react";
 import DropDown from "./components/DropDown";
 import Result from "./components/Result";
 import Footer from "./components/Footer";
-import MyPopover from "./components/InfoIcon";
 
 const units = [
   "Millimetre",
@@ -84,9 +83,12 @@ function App() {
   const [value, setValue] = useState("");
 
   return (
-    <div className="flex justify-center p-20 flex-col items-center gap-10 w-full">
-      <h1 className="text-7xl font-bold">Tell Me in...</h1>
-      <form className="flex gap-2" onSubmit={(event) => event.preventDefault()}>
+    <div className="flex justify-between p-20 flex-col items-center gap-12 w-full">
+      <h1 className="sm:text-7xl text-5xl font-bold">{"Tell Me in"}</h1>
+      <form
+        className="flex gap-2 flex-col"
+        onSubmit={(event) => event.preventDefault()}
+      >
         <input
           type="number"
           min={0}
@@ -96,24 +98,17 @@ function App() {
             setValue(e.target.value);
           }}
           placeholder="Enter your measurement"
-          className=" w-full text-2xl outline-indigo-600 rounded-md py-2 pl-5 pr-10 mt-1"
+          className=" w-full text-base outline-indigo-600 rounded-md py-2 pl-5 pr-10 mt-1 h-16 sm:text-2xl"
         />
 
         <DropDown list={units} unit={selectedUnit} funct={setSelectedUnit} />
       </form>
-      <div className="w-full rounded-lg p-10">
-        <Result
-          measurement={parseFloat(value)}
-          unit={selectedUnit}
-          objects={objs}
-        />
-      </div>
-      <div className="absolute bottom-10 right-10">
-        <MyPopover objects={objs} unit={selectedUnit} />
-      </div>
-      <div className="absolute bottom-10">
-        <Footer />
-      </div>
+      <Result
+        measurement={parseFloat(value)}
+        unit={selectedUnit}
+        objects={objs}
+      />
+      <Footer />
     </div>
   );
 }
