@@ -33,7 +33,7 @@ function Footer() {
       </svg>
 
       <a href="https://github.com/HarishRajDR/memory-game/" target="_blank">
-        <span className="text-xs sm:text-lg inline-flex items-center gap-1 hover:underline">
+        <span className="text-xs sm:text-lg flex items-center gap-1 hover:underline">
           <OcticonMarkGithub16 /> {"GitHub"}
         </span>
       </a>
